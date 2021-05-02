@@ -1,0 +1,15 @@
+---
+applications:
+  - name: java-test
+    random-route: true
+    memory: 1G
+    instances: 1
+    path: target/demo-0.0.1-SNAPSHOT.jar
+    buildpacks:
+      - java_buildpack
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{ enabled: false }'
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    services:
+      - testdb
