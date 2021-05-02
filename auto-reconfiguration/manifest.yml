@@ -9,6 +9,6 @@ applications:
       - java_buildpack
     env:
       JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     services:
       - testdb
