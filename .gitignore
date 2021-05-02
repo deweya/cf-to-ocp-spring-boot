@@ -23,7 +23,11 @@
 hs_err_pid*
 
 target/
+*/target/
+
 .settings/
 .vscode/
 .project
+
 .classpath
+*/.classpath
