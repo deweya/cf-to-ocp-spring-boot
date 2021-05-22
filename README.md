@@ -36,3 +36,9 @@ I'll assume more familiarity with OCP in this demo, but here are some options to
 Once your have configured CF and OCP access, you can continue by exploring each of the demos in this repo. Here is a list of each demo:
 * [application-properties](./application-properties): A demo showcasing how you can migrate a CF app with service bindings, where datasources are configured using an application.properties file.
 * [auto-reconfiguration](./auto-reconfiguration): Another demo showcasing the migration of a CF app with service bindings, except this time, the app does not explicitly define any datasources in application properties or code. This assumes CF's [auto-reconfiguration](https://github.com/cloudfoundry/java-buildpack-auto-reconfiguration) feature is leveraged and explains how to mock this behavior in a migration to OCP.
+
+These demos are not included but should be added at a later date to provide a more complete migration guide:
+* Migrating a CF-internal database or other service to OCP
+* Migrating Spring Boot apps using spring-cloud-connector
+* Migrating Spring Boot apps using spring-cloud-config-server
+* Migrating Spring Boot apps using an explicitly coded datasource
