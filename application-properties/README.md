@@ -102,3 +102,18 @@ Run the following commands to deploy the CF application to OCP:
    curl $(oc get route sample-app -o jsonpath='{.spec.host}')/findall
    ```
    This should return a JSON of customer names.
+
+## Cleaning Up
+Here are instructions for cleanup up your CF and OCP environments after running this demo:
+1. Delete the sample-app from OCP
+   ```bash
+   oc delete -f .openshift/deploy.yml
+   ```
+1. Delete the sample-app from CF
+   ```bash
+   cf delete java-test
+   ```
+1. The [auto-reconfiguration](../auto-reconfiguration) demo uses the same database provisioned from this demo. If you want to follow that demo next, you can save some time by leaving the database running. Otherwise, you can delete the database with the following command:
+   ```bash
+   cf delete-service testdb
+   ```
