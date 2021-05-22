@@ -80,8 +80,15 @@ Now that the image is built, you can continue with the deployment.
 
 ### Deploying the Application
 Run the following commands to deploy the CF application to OCP:
-1. Get the VCAP_SERVICES environment variable
+1. Get the CF application GUID
    ```bash
-   cf env <app-name>
+   export GUID=$(cf app <app-name> --guid -q)
    ```
-   The VCAP_SERVICES variable will be at the top of the output.
+1. Save the VCAP_SERVICES json to a variable. The tool [jq](https://github.com/stedolan/jq) comes in handy here.
+   ```bash
+   export VCAP_SERVICES_JSON=$(cf curl /v2/apps/$GUID/env -q | jq -r .system_env_json.VCAP_SERVICES)
+   ```
+1. Create an OCP secret containing the VCAP_SERVICES json
+   ```bash
+   oc create secret generic vcap-services --from-literal=VCAP_SERVICES="$VCAP_SERVICES_JSON"
+   ```
