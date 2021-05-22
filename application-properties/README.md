@@ -30,53 +30,13 @@ spring.datasource.password=${password}
 ```
 
 ## CF Setup
-These instructions assume you have access to CF and OCP environments and are logged into each.
-
-### Provisioning a MySQL database
-This demo attempts to simulate a situation where you are migrating a CF app that is bound to an external database. Often, this is done using [User Provided Services](https://docs.cloudfoundry.org/devguide/services/user-provided.html). Both external and internal services appear the same to a CF app, and both are displayed when running `cf services`. So, for this demo, we will provision a MySQL database from the CF Marketplace. This will create an internal database, but since a CF app doesn't know the difference between internal or external, this will work for the demo.
-
-Follow these steps to provision a MySQL database:
-1. Create the MySQL database
-   ```bash
-   cf create-service compose-for-mysql Standard testdb
-   ```
-1. Confirm the database was created
-   ```bash
-   cf services
-   ```
-
-### Deploying the CF Application
-CF applications are configured in code using an [App Manifest](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html). The app manifest for this application is [manifest.yml](./manifest.yml). One of the important fields in this file is `services`, which lists the service that we created, `testdb`.
-
-Run the following commands (from this directory) to deploy your application:
-1. Build the code locally to produce a Jar
-   ```
-   mvn clean install
-   ```
-1. Push your CF application
-   ```
-   cf push
-   ```
-1. Confirm your application was deployed successfully
-   ```
-   cf apps
-   ```
+See the [CF Setup](../common/cf-setup.md) doc.
 
 ## Migrating to OpenShift
 First, in order to deploy the CF app into OpenShift, you need to create a container image. This can be done easily by using OpenShift's native build capabilities.
 
 ### Building the Application Image
-Run the following commands to build your application image:
-1. Create a new build
-   ```bash
-   oc new-build --name=sample-app --binary --image-stream=java:11
-   ```
-1. Run the build
-   ```bash
-   oc start-build sample-app --from-dir=target --follow
-   ```
-
-Now that the image is built, you can continue with the deployment.
+See the [Building the Application Image](../common/build-application-image.md) doc.
 
 ### Deploying the Application
 Run the following commands to deploy the CF application to OCP:
