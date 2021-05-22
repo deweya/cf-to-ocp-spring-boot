@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: java-test
+  - name: sample-app
     random-route: true
     memory: 1G
     instances: 1
