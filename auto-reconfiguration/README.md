@@ -9,9 +9,7 @@ Similar to the [application-properties](../application-properties) demo, there a
 
 However, since an application like this is already not using VCAP_SERVICES, we may as well pick and choose only the fields we need from VCAP_SERVICES, save _those_ fields in an OCP secret, and reference them in application.properties like this:
 ```
-spring.datasource.uri=${uri}
-spring.datasource.username=${username}
-spring.datasource.password=${password}
+spring.datasource.uri=jdbc:${uri}
 ```
 **This is the solution demonstrated in this demo.**
 
@@ -25,3 +23,15 @@ First, in order to deploy the CF app into OpenShift, you need to create a contai
 See the [Building the Application Image](../common/build-application-image.md) doc.
 
 ### Deploying the Application
+Run the following commands to deploy the CF application to OCP:
+1. Get the CF application GUID
+   ```bash
+   export GUID=$(cf app sample-app --guid -q)
+   ```
+1. Save the VCAP_SERVICES json to a variable. The tool [jq](https://github.com/stedolan/jq) comes in handy here.
+   ```bash
+   export VCAP_SERVICES_JSON=$(cf curl /v2/apps/$GUID/env -q | jq -r .system_env_json.VCAP_SERVICES)
+   ```
+1. Save the 
+
+<Still in progress>

@@ -42,7 +42,7 @@ See the [Building the Application Image](../common/build-application-image.md) d
 Run the following commands to deploy the CF application to OCP:
 1. Get the CF application GUID
    ```bash
-   export GUID=$(cf app <app-name> --guid -q)
+   export GUID=$(cf app sample-app --guid -q)
    ```
 1. Save the VCAP_SERVICES json to a variable. The tool [jq](https://github.com/stedolan/jq) comes in handy here.
    ```bash
