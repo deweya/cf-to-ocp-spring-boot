@@ -92,3 +92,13 @@ Run the following commands to deploy the CF application to OCP:
    ```bash
    oc create secret generic vcap-services --from-literal=VCAP_SERVICES="$VCAP_SERVICES_JSON"
    ```
+1. Deploy the app
+   ```bash
+   oc apply -f .openshift/deploy.yml
+   ```
+   Notice in [.openshift/deploy.yml](./.openshift/deploy.yml) the usage of `envFrom` to provide the VCAP_SERVICES environment variable
+1. Ensure the app is connected to the database
+   ```bash
+   curl $(oc get route sample-app -o jsonpath='{.spec.host}')/findall
+   ```
+   This should return a JSON of customer names.
