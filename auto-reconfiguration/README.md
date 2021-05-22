@@ -32,6 +32,13 @@ Run the following commands to deploy the CF application to OCP:
    ```bash
    export VCAP_SERVICES_JSON=$(cf curl /v2/apps/$GUID/env -q | jq -r .system_env_json.VCAP_SERVICES)
    ```
-1. Save the 
+1. Save the datasource uri to a variable:
+   ```bash
+   export URI=$(echo $VCAP_SERVICES_JSON | jq -r '."compose-for-mysql"[0].credentials.uri')
+   ```
+1. Save the URI as an OCP secret
+   ```bash
+   oc create secret generic sample-app-uri --from-literal=URI=${URI}
+   ```
 
 <Still in progress>
