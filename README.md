@@ -5,7 +5,9 @@ This repo gives some basic examples of migrating a CF app to OCP with no code ch
 In order to run through the examples, you need access to a CF and an OCP environment.
 
 ### CF Access
-If you don't already have access to a CF environment, you can get started by provisioning a space on [IBM Cloud](https://cloud.ibm.com/cloudfoundry/overview). Do keep in mind that, [while inexpensive](https://www.ibm.com/cloud/cloud-foundry), this option is **not free**. IBM Cloud does have a free tier, but your Spring Boot app will likely run OOM within the free tier constraints (256MB memory).
+If you don't already have access to a CF environment, you can get started by provisioning a space on [IBM Cloud](https://cloud.ibm.com/cloudfoundry/overview). Do keep in mind that, while inexpensive, this option is **not free**. Here is the billing information to be aware of:
+- [Cloud Foundry Pricing](https://www.ibm.com/cloud/cloud-foundry)
+- [Compose For MySQL Pricing](https://cloud.ibm.com/catalog/services/compose-for-mysql) (Monthly prices are shown)
 
 Here's how to get set up in IBM Cloud:
 1. Create an IBM Cloud account by following [this link](https://cloud.ibm.com/registration)
