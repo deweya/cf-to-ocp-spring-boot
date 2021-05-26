@@ -9,7 +9,7 @@ Similar to the [application-properties](../application-properties) demo, there a
 
 However, since an application like this is already not using VCAP_SERVICES, we may as well pick and choose only the fields we need from VCAP_SERVICES, save _those_ fields in an OCP secret, and reference them in application.properties like this:
 ```
-spring.datasource.uri=jdbc:${uri}
+spring.datasource.url=jdbc:${uri}
 ```
 **This is the solution demonstrated in this demo.**
 

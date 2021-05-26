@@ -24,7 +24,7 @@ Since applications like this are referencing the VCAP_SERVICES var in applicatio
 
 You can also overwrite the application.properties file altogether. In this case, you could look at the VCAP_SERVICES var in CF, find the username/password/jdbc, save each in an OCP secret, and load each as environment variables. Then rewrite the application.properties file to look like this, for example:
 ```
-spring.datasource.uri=${uri}
+spring.datasource.url=${uri}
 spring.datasource.username=${username}
 spring.datasource.password=${password}
 ```
