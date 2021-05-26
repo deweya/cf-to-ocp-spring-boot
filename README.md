@@ -28,6 +28,13 @@ Here's how to get set up in IBM Cloud:
    cf delete <application-name>
    ```
    At the prompt, enter `yes`.
+1. You must also upgrade your account to a "pay-as-you-go" account in order to follow the demos. Follow these steps to upgrade your account:
+   1. Click the profile icon on the top-right of the IBM Cloud screen and select **profile**
+   1. On the taskbar at the top, select **Manage** > **Account**
+   1. On the menu to the left, select **Account settings**
+   1. Select **Add credit card** and follow each prompt to provide your information.
+
+   Note that it may take up to 48 hrs for your account to be updated.
 
 ### OCP Access
 I'll assume more familiarity with OCP in this demo, but here are some options to provision an OCP cluster or namespace:
