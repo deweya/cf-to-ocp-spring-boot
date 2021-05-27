@@ -28,7 +28,7 @@ spring.datasource.url=${uri}
 spring.datasource.username=${username}
 spring.datasource.password=${password}
 ```
-## Instructions
+# Instructions
 ## CF Setup
 See the [Common CF Setup](../common/cf-setup.md) doc to prepare a cloud foundry application for migration.
 

@@ -1,5 +1,5 @@
 # CF Setup
-The following steps will help you prepare a cloud foundry application for whichever sample you are working on application-properties, autoreconfiguration, etc.
+The following steps will help you prepare a cloud foundry application for the sample you are working on (application-properties, auto-reconfiguration, etc).
 
 These instructions assume you have access to CF and OCP environments and are logged into each. 
 
@@ -19,7 +19,7 @@ Follow these steps to provision a MySQL database:
 ## Deploying the CF Application
 CF applications are configured in code using an [App Manifest](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html). The app manifest for this application is [manifest.yml](./manifest.yml). One of the important fields in this file is `services`, which lists the service that we created, `testdb`.
 
-In whichever tutorial folder you are working on (application-properties, autoreconfiguration, etc), Run the following commands to deploy your application:
+In the tutorial folder you are working on (application-properties, auto-reconfiguration, etc), run the following commands to deploy your application:
 1. Build the code locally to produce a Jar
    ```
    mvn clean install
