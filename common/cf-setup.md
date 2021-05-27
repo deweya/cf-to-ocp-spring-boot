@@ -24,11 +24,11 @@ In whichever tutorial folder you are working on (application-properties, autorec
    ```
    mvn clean install
    ```
-2. Push your CF application
+1. Push your CF application
    ```
    cf push
    ```
-3. Confirm your application was deployed successfully
+1. Confirm your application was deployed successfully
    ```
    cf apps
    ```
