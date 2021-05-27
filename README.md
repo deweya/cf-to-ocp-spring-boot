@@ -12,7 +12,7 @@ If you don't already have access to a CF environment, you can get started by pro
 Here's how to get set up in IBM Cloud:
 1. Create an IBM Cloud account by following [this link](https://cloud.ibm.com/registration)
 1. Create a sample application from the [IBM Cloud UI](https://cloud.ibm.com/catalog/starters/cloud-foundry?runtime=liberty-for-java). This will automatically create your CF org and space for you to use, while also providing you a sample workload to examine if you want.
-1. Install the [ibmcloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli#shell_install).
+1. Install the [ibmcloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli#shell_install). Afterwards, you may also need to install the cf cli in the ibmcloud cli `ibmcloud cf install`.
 1. Log into IBM Cloud from the CLI using one of the following commands:
    1. `ibmcloud login` if logging in using an IBM Cloud username and password
    1. `ibmcloud login --sso` if logging in using a federated user ID
