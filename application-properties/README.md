@@ -28,15 +28,15 @@ spring.datasource.url=${uri}
 spring.datasource.username=${username}
 spring.datasource.password=${password}
 ```
-
+## Instructions
 ## CF Setup
-See the [CF Setup](../common/cf-setup.md) doc.
+See the [Common CF Setup](../common/cf-setup.md) doc to prepare a cloud foundry application for migration.
 
 ## Migrating to OpenShift
 First, in order to deploy the CF app into OpenShift, you need to create a container image. This can be done easily by using OpenShift's native build capabilities.
 
 ### Building the Application Image
-See the [Building the Application Image](../common/build-application-image.md) doc.
+See the [Building the Application Image](../common/building-application-image.md) doc.
 
 ### Deploying the Application
 Run the following commands to deploy the CF application to OCP:
