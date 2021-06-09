@@ -51,3 +51,4 @@ These demos are not included but should be added at a later date to provide a mo
 * Migrating Spring Boot apps using spring-cloud-connector
 * Migrating Spring Boot apps using spring-cloud-config-server
 * Migrating Spring Boot apps using an explicitly coded datasource
+* Migrating applications using CredHub
