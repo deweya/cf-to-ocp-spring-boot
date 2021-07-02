@@ -1,3 +1,6 @@
+Prereqs:
+1. You setup cloudfoundry apps as described [here](../README.md)
+
 ## Deploying Rabbit MQ 3.6.5 to Single Pod on Openshift
 
 ### Using custom public docker image (not mine, would have to vet in case we want to use it)
