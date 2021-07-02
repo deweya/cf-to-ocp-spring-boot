@@ -1,6 +1,6 @@
 ## Deploying Rabbit MQ 3.6.5 to Single Pod on Openshift
 
-### Using custom public docker image
+### Using custom public docker image (not mine, would have to vet in case we want to use it)
 
 ```
 oc project rabbitmq-servers
@@ -15,9 +15,13 @@ Option 1.  After exposing the service, click on the route and login to the manag
 
 Option 2. Send and Consume message with local client.
 
+Open up a connection via port forwarding to the rabbit mq server pod
 ```
-# rabbitmq-client project will send messages to the oc client which will then forward to the amqp client in the rabbitmq server.
-oc port-forward <podname> 5672:5672 
+oc port-forward openshift-rabbitmq-1-2spjp 5672:5672 -n rabbitmq-servers
+```
+
+Run client app to talk to local client. rabbitmq-client project will send messages to the oc client which will then forward to the amqp client in the rabbitmq server.
+```
 cd rabbitmq-client/
 mvn clean install -DskipTests
 export SPRING_PROFILES_ACTIVE=local
