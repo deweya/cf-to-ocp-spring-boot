@@ -1,5 +1,6 @@
+
 Prereqs:
-1. Make sure you are logged in as a cluster admin or else you will see the following error messages:
+1. Make sure you are logged in as a cluster admin or else you will see something like the following error messages:
 
 ```
 Error from server (Forbidden): error when retrieving current configuration of:
@@ -14,6 +15,7 @@ from server for: "https://github.com/rabbitmq/cluster-operator/releases/latest/d
 Error from server (Forbidden): error when creating "rabbitmq-server.yaml": rabbitmqclusters.rabbitmq.com is forbidden: User "developer" cannot create resource "rabbitmqclusters" in API group "rabbitmq.com" in the namespace "rabbitmq-servers"
 ```
 
+## Deploying 3.8.16 RabbitMQ Cluster to Openshift
 These instructions are just a consolodated/tweaked version of below references with oc cli instead of kubectl.
 
 

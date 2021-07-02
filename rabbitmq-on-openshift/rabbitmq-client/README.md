@@ -1,5 +1,6 @@
 Prereqs:
 1. You setup cloudfoundry apps as described [here](../README.md)
+2. Make sure you have a rabbitmq server set up on openshift as described either [here](../rabbitmq-rabbitmq-server-noncluster/README.md) or [here](../rabbitmq-server-cluster-via-customized-kubernetes-operator/README.md).
 
 Create a build config to create a new application image similiar to these [build instructions](https://github.com/deweya/cf-to-ocp-spring-boot/blob/main/common/building-application-image.md):
 ```
