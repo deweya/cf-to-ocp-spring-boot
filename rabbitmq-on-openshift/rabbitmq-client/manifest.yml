@@ -1,0 +1,16 @@
+---
+applications:
+  - name: rabbitmq-testclient
+    memory: 1G
+    instances: 1
+    path: target/rabbitmq-client-0.0.1-SNAPSHOT.jar
+    buildpacks:
+      - java_buildpack
+    health-check-type: process
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{ enabled: false }'
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_PROFILES_ACTIVE: dev
+    services:
+      - rabbitmq-testserver

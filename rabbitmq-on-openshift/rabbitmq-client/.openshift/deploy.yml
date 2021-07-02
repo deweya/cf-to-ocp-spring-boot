@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq-client
+  annotations:
+    image.openshift.io/triggers: |-
+      [
+        {
+          "from": {
+            "kind": "ImageStreamTag",
+            "name": "rabbitmq-client:latest"
+          },
+          "fieldPath": "spec.template.spec.containers[0].image"
+        }
+      ]
+spec:
+  selector:
+    matchLabels:
+      app: rabbitmq-client
+  template:
+    metadata:
+      labels:
+        app: rabbitmq-client
+    spec:
+      containers:
+        - name: main
+          image: rabbitmq-client:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
+          envFrom:
+            - secretRef:
+                name: vcap-services
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 60
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq-client
+spec:
+  type: ClusterIP
+  selector:
+    app: rabbitmq-client
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: rabbitmq-client
+spec:
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: rabbitmq-client
