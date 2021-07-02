@@ -4,10 +4,10 @@ Prereqs:
 Create a build config to create a new application image similiar to these [build instructions](https://github.com/deweya/cf-to-ocp-spring-boot/blob/main/common/building-application-image.md):
 ```
 oc project rabbitmq-clients
-oc new-build --name=rabbitmq-client-build --binary --image-stream=java:11
+oc new-build --name=rabbitmq-client --binary --image-stream=java:11
 cd rabbitmq-client
 mvn clean install -DskipTests
-oc start-build rabbitmq-client-build --from-dir=target --follow
+oc start-build rabbitmq-client --from-dir=target --follow
 ```
 
 Then copy the vcap-services over from cloud foundry similiary described [here](https://github.com/deweya/cf-to-ocp-spring-boot/tree/main/application-properties).
@@ -27,9 +27,12 @@ from a value that looks like this
 to a value that looks like this (for the rabbitmq-server service fqdn that got stood up on Openshift earlier):
 ```
 ...
-        "uri": "amqp://guest:guest@openshift-rabbitmq.rabbitmq-servers.svc.cluster.local:5672",
+        "uri": "amqp://guest:guest@rabbitmq-server.rabbitmq-servers.svc.cluster.local:5672",
 ...
 ```
+Caution: credentials could be different. If you deployed the non cluster than guest / guest is 
+included. Otherwise if you deployed the cluster via operator, get generated credentials for the client from secret rabbitmq-server-default-user in the namespace rabbitmq-servers.
+
 
 Finally deploy the client:
 ```

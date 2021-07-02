@@ -7,7 +7,7 @@ Prereqs:
 
 ```
 oc project rabbitmq-servers
-oc new-app luiscoms/openshift-rabbitmq:3.6.5-management
+oc new-app luiscoms/openshift-rabbitmq:3.6.5-management --name rabbitmq-server
 oc expose svc/openshift-rabbitmq --port=15672 --name management
 ```
 
