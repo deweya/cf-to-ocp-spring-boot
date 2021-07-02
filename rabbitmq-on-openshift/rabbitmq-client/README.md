@@ -1,7 +1,7 @@
 Prereqs:
 1. You setup cloudfoundry apps as described [here](../README.md)
 
-Following these [build instructions](https://github.com/deweya/cf-to-ocp-spring-boot/blob/main/common/building-application-image.md):
+Create a build config to create a new application image similiar to these [build instructions](https://github.com/deweya/cf-to-ocp-spring-boot/blob/main/common/building-application-image.md):
 ```
 oc project rabbitmq-clients
 oc new-build --name=rabbitmq-client-build --binary --image-stream=java:11
