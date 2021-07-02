@@ -42,4 +42,4 @@ OR
 
 
 ### Migrate rabbitmq client
-Please follow [instructions](./rabbitmq-client/HELP.md)
+Please follow [instructions](./rabbitmq-client/README.md)
